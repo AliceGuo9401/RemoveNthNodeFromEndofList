@@ -7,6 +7,7 @@ struct ListNode {
     ListNode(int x) : val(x), next(NULL) {}
 };
 ListNode * removeNthFromEnd (ListNode * head, int n) {
+    //删除倒数第1个
     if (head->next == NULL && n == 1) //[1], 1 -> NULL
         return head = NULL;
 
@@ -24,7 +25,8 @@ ListNode * removeNthFromEnd (ListNode * head, int n) {
     ListNode *p1(head), *p2(head), *p3(head);
     for (int i = 0; i < n - 1; ++i)
         p3 = p3->next;
-
+    
+    //删除正数第1个
     if (p3->next == NULL) { //[1, 2, 3], 3 -> [2, 3]
         head = head->next;
         free(p1);
